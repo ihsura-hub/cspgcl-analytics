@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+}
+
+header {
+  padding: 20px;
+  background-color: #2b3e50;
+  color: white;
+  font-size: 24px;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.calendar-container {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabs-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tab-buttons button {
+  padding: 10px 20px;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tab-buttons button.active {
+  background-color: #2b3e50;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  /* removed flex: 1 to prevent stretching */
+}
+
+.tab-content.active {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Control the height of each chart box */
+.chart-box {
+  background-color: white;
+  padding: 10px 20px 20px;       /* Top, sides, bottom padding */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;          /* Space between chart boxes */
+  position: relative;
+  max-height: 400px;            /* Limit height so chart doesn't expand too much */
+  overflow: hidden;
+}
+
+.chart-box canvas {
+  height: 100% !important;   /* Fill chart-box height */
+  width: 100% !important;
+}
+
+.chart-box h3 {
+  margin: 0 0 10px;             /* Space below heading */
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.export-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.export-buttons button {
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #555;
+  padding-bottom: 10px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.calendar-cell {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar-cell.empty {
+  background-color: transparent;
+  cursor: default;
+}
+
+.calendar-cell:not(.empty):hover {
+  background-color: #d0eaff;
+}
+
+.calendar-cell.selected {
+  background-color: #ff4d4d;
+  color: white;
+}
+/* Add this to the end of your style.css */
+.faq-answer-box {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #eef1f5;
+  border-left: 4px solid #3498db;
+  border-radius: 4px;
+  min-height: 100px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.faq-answer-box strong {
+  color: #2c3e50;
+}
+
+.faq-answer-box ul {
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}

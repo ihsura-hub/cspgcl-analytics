@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSPGCL Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>CSPGCL</header>
+  <div class="container">
+    <div class="calendar-container">
+      <select id="monthSelect"></select>
+      <div class="calendar-header" id="calendarHeader"></div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+      <hr style="margin: 20px 0;" />
+      <h3>Selected Day Info</h3>
+      <div id="selectedDataPanel"><em>Select a date to see details.</em></div>
+      <button onclick="clearSelection()" style="margin-top: 10px;">Clear Highlight</button>
+
+      <hr style="margin: 20px 0;">
+      <h4>Suggestive Measures & Analysis</h4>
+      <select id="faq-select" style="width: 100%; padding: 8px; font-size: 14px; margin-bottom: 10px;">
+        <option value="">-- Select a Question --</option>
+        <optgroup label="Suggestive Measures">
+          <option value="improve_heat_rate">How can I improve a high Heat Rate?</option>
+          <option value="diagnose_low_gen">What causes consistently low generation?</option>
+          <option value="investigate_high_coal">What to do about high coal consumption?</option>
+          <option value="understand_trip">What does a sudden generation drop mean?</option>
+        </optgroup>
+        <optgroup label="Data Analysis">
+          <option value="highest_generation">Which day had the highest generation?</option>
+          <option value="lowest_spec_coal">Which day was most fuel-efficient?</option>
+          <option value="avg_heat_rate">What was the average heat rate?</option>
+          <option value="total_coal">What was the total coal consumed?</option>
+        </optgroup>
+      </select>
+      <div id="faq-answer" class="faq-answer-box"><em>Your answer will appear here.</em></div>
+    </div>
+
+    <div class="tabs-container">
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="showTab(0)">Performance</button>
+        <button class="tab-btn" onclick="showTab(1)">Efficiency</button>
+        <!-- The Analysis tab button is back -->
+        <button class="tab-btn" onclick="showTab(2)">Analysis</button>
+      </div>
+
+      <div class="tab-content active">
+        <div class="chart-box">
+          <h3>Generation Trend (MU)</h3>
+          <canvas id="generationChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Coal Consumption (MT)</h3>
+          <canvas id="coalChart"></canvas>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <div class="chart-box">
+          <h3>Heat Rate Trend (kcal/kWh)</h3>
+          <canvas id="heatRateChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Specific Coal Consumption (kg/kWh)</h3>
+          <canvas id="specCoalChart"></canvas>
+        </div>
+      </div>
+
+      <!-- The Analysis tab content is back -->
+      <div class="tab-content">
+        <div class="chart-box">
+          <h3>Generation vs Specific Coal (Scatter)</h3>
+          <canvas id="scatterChart"></canvas>
+        </div>
+         <div class="chart-box">
+          <h3>(Another Chart Here)</h3>
+          <p style="text-align:center; margin-top: 50px;">(More charts coming soon)</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
